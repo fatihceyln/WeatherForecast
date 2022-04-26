@@ -18,8 +18,10 @@ class HomeViewModel: ObservableObject {
     private let dailyWeatherDataService: DailyWeatherDataService
     
     @Published var currentWeather: CurrentWeather? = nil
+    
     @Published var hourlyWeather: HourlyWeather? = nil
     @Published var hourlyArray: [Hourly]? = []
+    
     @Published var dailyWeather: DailyWeather? = nil
     @Published var dailyArray: [Daily]? = []
     
@@ -77,27 +79,31 @@ class HomeViewModel: ObservableObject {
         
     }
     
-    func getTime(dt: Int) -> String {
-        let date = NSDate(timeIntervalSince1970: TimeInterval(dt))
+    func getTime(dt: Int, timezone: String) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(dt))
+        
+        let timeZone = TimeZone(identifier: timezone)
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .none
         dateFormatter.timeStyle = .short
+        dateFormatter.timeZone = timeZone
         
-        return dateFormatter.string(from: date as Date)
+        return dateFormatter.string(from: date)
     }
     
-    func getDay(daily: Daily) -> String {
-        let date = Date(timeIntervalSince1970: TimeInterval(daily.dt))
+    func getDay(dt: Int, timezone: String) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(dt))
+        let timeZone = TimeZone(identifier: timezone)
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
+        dateFormatter.timeZone = timeZone
         dateFormatter.dateFormat = "EEEE"
         
         let today = Date()
         
         return dateFormatter.string(from: today) == dateFormatter.string(from: date) ? "Today -" : dateFormatter.string(from: date) + " -"
-    
-        //return dateFormatter.string(from: date) + " -"
     }
 }

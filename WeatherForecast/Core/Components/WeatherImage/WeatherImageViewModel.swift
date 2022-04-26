@@ -13,24 +13,11 @@ class WeatherImageViewModel: ObservableObject {
     
     @Published var image: Image? = nil
     private let weatherMood: WeatherMood
-    //private let dataService: WeatherImageService
-    //private var cancellables = Set<AnyCancellable>()
     
     init(weatherMood: WeatherMood) {
         self.weatherMood = weatherMood
-        //self.dataService = WeatherImageService(weatherMood: weatherMood)
-        //self.addSubscribers()
         self.getWeatherImage(weatherIcon: weatherMood.icon)
     }
-    /*
-    private func addSubscribers() {
-        dataService.$image
-            .sink { [weak self] returnedImage in
-                self?.image = returnedImage
-            }
-            .store(in: &cancellables)
-    }
-    */
     
     private func getWeatherImage(weatherIcon: String) {
         switch weatherIcon {

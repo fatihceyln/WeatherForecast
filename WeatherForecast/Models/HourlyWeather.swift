@@ -8,12 +8,14 @@
 import Foundation
 
 struct HourlyWeather: Codable {
+    let timezone: String
     let timezoneOffset: Int
     let hourly: [Hourly]
 
     enum CodingKeys: String, CodingKey {
         case timezoneOffset = "timezone_offset"
         case hourly
+        case timezone
     }
 }
 

@@ -31,14 +31,12 @@ struct WeatherImageView: View {
         .padding()
         .background(Material.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
         .padding()
+        .shadow(radius: 10)
     }
 }
 
 struct WeatherImageView_Previews: PreviewProvider {
     static var previews: some View {
-        //WeatherImageView()
-        ZStack {
-            
-        }
+        WeatherImageView(weatherMood: WeatherMood(id: 0, main: "", weatherDescription: "", icon: "01d"))
     }
 }

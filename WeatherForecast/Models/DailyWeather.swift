@@ -8,12 +8,14 @@
 import Foundation
 
 struct DailyWeather: Codable {
+    let timezone: String
     let timezoneOffset: Int
     let daily: [Daily]
 
     enum CodingKeys: String, CodingKey {
         case timezoneOffset = "timezone_offset"
         case daily
+        case timezone
     }
 }
 
