@@ -12,8 +12,6 @@ import SwiftUI
 
 class LocationManager: NSObject {
     
-    static let shared = LocationManager()
-    
     let manager = CLLocationManager()
     var location = PassthroughSubject<CLLocation, Error>()
     

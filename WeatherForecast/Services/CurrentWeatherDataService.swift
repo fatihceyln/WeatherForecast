@@ -11,15 +11,16 @@ import SwiftUI
 
 class CurrentWeatherDataService {
     
-    let locationManager: LocationManager = LocationManager.shared
+    private let locationManager: LocationManager
     @Published var currentWeather: CurrentWeather? = nil
-    var cancellables = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
     
-    init() {
+    init(locationManager: LocationManager) {
+        self.locationManager = locationManager
         getCurrentLocation()
     }
     
-    func getCurrentLocation() {
+    private func getCurrentLocation() {
         locationManager.location
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: NetworkingManager.handleCompletion(completion:)) { [weak self] returnedLocation in
@@ -31,7 +32,7 @@ class CurrentWeatherDataService {
             .store(in: &cancellables)
     }
     
-    func getCurrentWeather(lat: Double, lon: Double) {
+    private func getCurrentWeather(lat: Double, lon: Double) {
         
         guard let url = URL(string: ApiURL.current(lat: lat, lon: lon).description) else { return }
         

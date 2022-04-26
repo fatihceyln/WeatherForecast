@@ -10,10 +10,11 @@ import Combine
 
 class DailyWeatherDataService {
     @Published var dailyWeather: DailyWeather? = nil
-    let locationManager: LocationManager = LocationManager.shared
-    var cancellables = Set<AnyCancellable>()
+    private let locationManager: LocationManager
+    private var cancellables = Set<AnyCancellable>()
     
-    init() {
+    init(locationManager: LocationManager) {
+        self.locationManager = locationManager
         getCurrentLocation()
     }
     

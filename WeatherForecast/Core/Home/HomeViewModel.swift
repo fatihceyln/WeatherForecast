@@ -11,11 +11,11 @@ import CoreLocation
 import SwiftUI
 
 class HomeViewModel: ObservableObject {
-    private let locationManager: LocationManager = LocationManager.shared
+    private let locationManager: LocationManager = LocationManager()
     
-    private let currentWeatherDataService: CurrentWeatherDataService = CurrentWeatherDataService()
-    private let hourlyWeatherDataService: HourlyWeatherDataService = HourlyWeatherDataService()
-    private let dailyWeatherDataService: DailyWeatherDataService = DailyWeatherDataService()
+    private let currentWeatherDataService: CurrentWeatherDataService
+    private let hourlyWeatherDataService: HourlyWeatherDataService
+    private let dailyWeatherDataService: DailyWeatherDataService
     
     @Published var currentWeather: CurrentWeather? = nil
     @Published var hourlyWeather: HourlyWeather? = nil
@@ -26,6 +26,9 @@ class HomeViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     init() {
+        self.currentWeatherDataService = CurrentWeatherDataService(locationManager: locationManager)
+        self.hourlyWeatherDataService = HourlyWeatherDataService(locationManager: locationManager)
+        self.dailyWeatherDataService = DailyWeatherDataService(locationManager: locationManager)
         addSubscribers()
     }
     
