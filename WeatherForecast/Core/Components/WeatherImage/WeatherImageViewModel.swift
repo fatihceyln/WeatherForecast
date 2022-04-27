@@ -30,13 +30,13 @@ class WeatherImageViewModel: ObservableObject {
         case "02n":
             self.image = Image(systemName: "cloud.moon.fill")
         case "03d":
-            self.image = Image(systemName: "cloud.fill")
+            self.image = Image(systemName: "smoke.fill")
         case "03n":
-            self.image = Image(systemName: "cloud.fill")
+            self.image = Image(systemName: "smoke.fill")
         case "04d":
-            self.image = Image(systemName: "smoke.fill")
+            self.image = Image(systemName: "cloud.fill")
         case "04n":
-            self.image = Image(systemName: "smoke.fill")
+            self.image = Image(systemName: "cloud.fill")
         case "09d":
             self.image = Image(systemName: "cloud.drizzle.fill")
         case "09n":

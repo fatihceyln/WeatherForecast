@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D1E24E428194FBF0072A013 /* GeoCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E24E328194FBF0072A013 /* GeoCity.swift */; };
+		3D1E24E628194FE20072A013 /* GeocodingDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E24E528194FE20072A013 /* GeocodingDataService.swift */; };
+		3D1E24EA28195CB80072A013 /* ManageCitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E24E928195CB80072A013 /* ManageCitiesView.swift */; };
 		3D681EFD2815412200A9DDA4 /* DailyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D681EFC2815412200A9DDA4 /* DailyWeather.swift */; };
 		3D681EFF281541C200A9DDA4 /* DailyWeatherDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D681EFE281541C200A9DDA4 /* DailyWeatherDataService.swift */; };
 		3D7881122815B09E007295A4 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7881112815B09E007295A4 /* TestView.swift */; };
@@ -40,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D1E24E328194FBF0072A013 /* GeoCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCity.swift; sourceTree = "<group>"; };
+		3D1E24E528194FE20072A013 /* GeocodingDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingDataService.swift; sourceTree = "<group>"; };
+		3D1E24E928195CB80072A013 /* ManageCitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCitiesView.swift; sourceTree = "<group>"; };
 		3D681EFC2815412200A9DDA4 /* DailyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeather.swift; sourceTree = "<group>"; };
 		3D681EFE281541C200A9DDA4 /* DailyWeatherDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherDataService.swift; sourceTree = "<group>"; };
 		3D7881112815B09E007295A4 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -82,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D1E24E828195C950072A013 /* ManageCities */ = {
+			isa = PBXGroup;
+			children = (
+				3D1E24E928195CB80072A013 /* ManageCitiesView.swift */,
+			);
+			path = ManageCities;
+			sourceTree = "<group>";
+		};
 		3D8BA13228131F6500280D73 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +111,7 @@
 				3D8BA1462813320900280D73 /* CurrentWeatherDataService.swift */,
 				3D96C61628140C810070B08F /* HourlyWeatherDataService.swift */,
 				3D681EFE281541C200A9DDA4 /* DailyWeatherDataService.swift */,
+				3D1E24E528194FE20072A013 /* GeocodingDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -109,6 +124,7 @@
 				3D681EFC2815412200A9DDA4 /* DailyWeather.swift */,
 				3D8BA1422813307800280D73 /* WeatherMood.swift */,
 				3D8BA144281330BB00280D73 /* ApiURL.swift */,
+				3D1E24E328194FBF0072A013 /* GeoCity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -118,6 +134,7 @@
 			children = (
 				3D8BA13628131F8500280D73 /* Components */,
 				3D8BA13728131F9000280D73 /* Home */,
+				3D1E24E828195C950072A013 /* ManageCities */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -308,10 +325,13 @@
 			files = (
 				3D8BA13D281322A500280D73 /* LocationManager.swift in Sources */,
 				3D79B8322814478C00C5C0FF /* HourlyWeather.swift in Sources */,
+				3D1E24E428194FBF0072A013 /* GeoCity.swift in Sources */,
 				3D681EFD2815412200A9DDA4 /* DailyWeather.swift in Sources */,
+				3D1E24EA28195CB80072A013 /* ManageCitiesView.swift in Sources */,
 				3D8BA13B281320CF00280D73 /* NetworkingManager.swift in Sources */,
 				3D681EFF281541C200A9DDA4 /* DailyWeatherDataService.swift in Sources */,
 				3DAE0F462812FA67001B84CC /* WeatherForecastApp.swift in Sources */,
+				3D1E24E628194FE20072A013 /* GeocodingDataService.swift in Sources */,
 				3D96C61728140C810070B08F /* HourlyWeatherDataService.swift in Sources */,
 				3D96C6102813F4BB0070B08F /* WeatherImageView.swift in Sources */,
 				3D96C6122813F55F0070B08F /* WeatherImageViewModel.swift in Sources */,

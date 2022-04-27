@@ -16,6 +16,7 @@ class HomeViewModel: ObservableObject {
     private let currentWeatherDataService: CurrentWeatherDataService
     private let hourlyWeatherDataService: HourlyWeatherDataService
     private let dailyWeatherDataService: DailyWeatherDataService
+    private let geocodingDataService: GeocodingDataService
     
     @Published var currentWeather: CurrentWeather? = nil
     
@@ -25,12 +26,15 @@ class HomeViewModel: ObservableObject {
     @Published var dailyWeather: DailyWeather? = nil
     @Published var dailyArray: [Daily]? = []
     
+    @Published var geoCity: GeoCity? = nil
+    
     var cancellables = Set<AnyCancellable>()
     
     init() {
         self.currentWeatherDataService = CurrentWeatherDataService(locationManager: locationManager)
         self.hourlyWeatherDataService = HourlyWeatherDataService(locationManager: locationManager)
         self.dailyWeatherDataService = DailyWeatherDataService(locationManager: locationManager)
+        self.geocodingDataService = GeocodingDataService(locationManager: locationManager)
         addSubscribers()
     }
     
@@ -74,6 +78,15 @@ class HomeViewModel: ObservableObject {
             }
             .sink(receiveCompletion: NetworkingManager.handleCompletion(completion:)) { [weak self] returnedDailyArray in
                 self?.dailyArray = returnedDailyArray
+            }
+            .store(in: &cancellables)
+        
+        geocodingDataService.$geoCity
+            .tryMap { geoCities -> GeoCity? in
+                return geoCities?.first
+            }
+            .sink(receiveCompletion: NetworkingManager.handleCompletion(completion:)) { [weak self] returnedGeoCity in
+                self?.geoCity = returnedGeoCity
             }
             .store(in: &cancellables)
         

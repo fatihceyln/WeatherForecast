@@ -18,6 +18,7 @@ struct HomeView: View {
                 .ignoresSafeArea()
             
             ScrollView {
+                cityName
                 currentTemperatureInfo
                 hourlyTemperatureInfo
                 dailyWeatherInfo
@@ -30,6 +31,31 @@ struct HomeView: View {
 
 
 extension HomeView {
+    
+    var cityName: some View {
+        ZStack {
+            if let geoCity = vm.geoCity {
+                HStack(spacing: 10) {
+                    Image(systemName: "location.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 15, height: 15)
+                    
+                    VStack {
+                        Text(geoCity.name)
+                            .font(.callout)
+                        Text(geoCity.country)
+                            .font(.caption)
+                    }
+                }
+                .padding()
+                .background(Material.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
+                .padding()
+                .shadow(radius: 10)
+            }
+        }
+    }
+    
     var currentTemperatureInfo: some View {
         ZStack {
             if let currentWeather = vm.currentWeather {
@@ -38,8 +64,7 @@ extension HomeView {
                     
                     if let mood = currentWeather.current.weather.first {
                         Text(mood.main)
-                        WeatherImageView(weatherMood: mood)
-                            .frame(width: 200, height: 200)
+                        WeatherImageView(weatherMood: mood, width: 100, height: 100)
                     }
                 }
                 .padding()
@@ -64,8 +89,7 @@ extension HomeView {
                                 TemperatureView(temperature: hourly.temp, fontForTitle: .callout, fontForCelcius: .caption)
                                 
                                 if let weatherMood = hourly.weather.first {
-                                    WeatherImageView(weatherMood: weatherMood)
-                                        .frame(width: 100, height: 100)
+                                    WeatherImageView(weatherMood: weatherMood, width: 40, height: 40)
                                     
                                     Text(weatherMood.weatherDescription)
                                         .font(.caption)

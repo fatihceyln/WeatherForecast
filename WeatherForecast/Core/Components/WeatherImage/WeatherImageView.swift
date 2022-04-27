@@ -10,9 +10,12 @@ import SwiftUI
 struct WeatherImageView: View {
     
     @ObservedObject var vm: WeatherImageViewModel
-    
-    init(weatherMood: WeatherMood) {
+    let width: CGFloat
+    let height: CGFloat
+    init(weatherMood: WeatherMood, width: CGFloat, height: CGFloat) {
         vm = WeatherImageViewModel(weatherMood: weatherMood)
+        self.width = width
+        self.height = height
     }
     
     var body: some View {
@@ -21,7 +24,7 @@ struct WeatherImageView: View {
                 image
                     .resizable()
                     .scaledToFit()
-                    .foregroundColor(.black)
+                    .frame(width: width, height: height)
             }
             else {
                 ProgressView()
@@ -36,6 +39,6 @@ struct WeatherImageView: View {
 
 struct WeatherImageView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherImageView(weatherMood: WeatherMood(id: 0, main: "", weatherDescription: "", icon: "01d"))
+        WeatherImageView(weatherMood: WeatherMood(id: 0, main: "", weatherDescription: "", icon: "01d"), width: 100, height: 100)
     }
 }
