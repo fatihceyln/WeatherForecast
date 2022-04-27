@@ -10,6 +10,7 @@ import Combine
 
 struct HomeView: View {
     @EnvironmentObject var vm: HomeViewModel
+    @State var showManageCities: Bool = false
     
     var body: some View {
         ZStack {
@@ -18,11 +19,23 @@ struct HomeView: View {
                 .ignoresSafeArea()
             
             ScrollView {
-                cityName
-                currentTemperatureInfo
-                hourlyTemperatureInfo
-                dailyWeatherInfo
-                currentWeatherDetailInfo
+                VStack {
+                    
+                    HStack {
+                        plusButton
+                        Spacer()
+                        cityName
+                        Spacer()
+                        plusButton
+                            .opacity(0)
+                            
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    currentTemperatureInfo
+                    hourlyTemperatureInfo
+                    dailyWeatherInfo
+                    currentWeatherDetailInfo
+                }
             }
             .frame(maxWidth: .infinity)
         }
@@ -31,6 +44,27 @@ struct HomeView: View {
 
 
 extension HomeView {
+    
+    var plusButton: some View {
+        HStack {
+            Button {
+                showManageCities = true
+            } label: {
+                Image(systemName: "plus.square.fill")
+                    .resizable()
+                    .tint(.black)
+                    .scaledToFit()
+                    .frame(width: 20, height: 20)
+                    .padding()
+                    .background(Material.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
+                    .padding()
+                    .shadow(radius: 10)
+            }
+            .fullScreenCover(isPresented: $showManageCities, content: {
+                ManageCitiesView(showManageCities: $showManageCities)
+            })
+        }
+    }
     
     var cityName: some View {
         ZStack {
@@ -49,6 +83,7 @@ extension HomeView {
                     }
                 }
                 .padding()
+                .frame(width: 200)
                 .background(Material.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
                 .padding()
                 .shadow(radius: 10)
@@ -156,7 +191,7 @@ extension HomeView {
         ZStack {
             if let currentWeather = vm.currentWeather {
                 HStack(alignment: .center) {
-                        
+                    
                     VStack(alignment: .center, spacing: 0) {
                         Text("Feels like")
                             .font(.caption)
@@ -197,7 +232,7 @@ extension HomeView {
                         Text("\(vm.getTime(dt: currentWeather.current.sunset, timezone: currentWeather.timezone))")
                             .font(.title2)
                             .padding(.bottom)
-    
+                        
                     }
                     .padding(.top)
                 }
