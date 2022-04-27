@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct CurrentWeather: Codable {
+struct CurrentWeather: Codable, Equatable {
+    static func == (lhs: CurrentWeather, rhs: CurrentWeather) -> Bool {
+        lhs.timezone == rhs.timezone && lhs.timezoneOffset == rhs.timezoneOffset && lhs.current == rhs.current
+    }
+    
     let timezone: String
     let timezoneOffset: Int
     let current: Current
@@ -19,7 +23,7 @@ struct CurrentWeather: Codable {
     }
 }
 
-struct Current: Codable {
+struct Current: Codable, Equatable {
     let sunrise, sunset: Int
     let temp, feelsLike: Double
     let pressure, humidity: Int

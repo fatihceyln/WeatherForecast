@@ -14,7 +14,7 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             Color.blue
-                .opacity(0.9)
+                .opacity(0.3)
                 .ignoresSafeArea()
             
             ScrollView {
@@ -39,6 +39,7 @@ extension HomeView {
                     if let mood = currentWeather.current.weather.first {
                         Text(mood.main)
                         WeatherImageView(weatherMood: mood)
+                            .frame(width: 200, height: 200)
                     }
                 }
                 .padding()
@@ -58,13 +59,18 @@ extension HomeView {
                     HStack {
                         ForEach(hourlyArray, id: \.self) { hourly in
                             VStack {
+                                Text(vm.getTime(dt: hourly.dt, timezone: hourlyWeather.timezone))
+                                
                                 TemperatureView(temperature: hourly.temp, fontForTitle: .callout, fontForCelcius: .caption)
                                 
                                 if let weatherMood = hourly.weather.first {
                                     WeatherImageView(weatherMood: weatherMood)
+                                        .frame(width: 100, height: 100)
+                                    
+                                    Text(weatherMood.weatherDescription)
+                                        .font(.caption)
                                 }
                                 
-                                Text(vm.getTime(dt: hourly.dt, timezone: hourlyWeather.timezone))
                             }
                         }
                     }
@@ -91,9 +97,9 @@ extension HomeView {
                             Spacer()
                             
                             HStack(alignment: .center, spacing: 5) {
-                                TemperatureView(temperature: daily.temp.max, fontForTitle: .callout, fontForCelcius: .caption)
-                                Text("/")
                                 TemperatureView(temperature: daily.temp.min, fontForTitle: .callout, fontForCelcius: .caption)
+                                Text("/")
+                                TemperatureView(temperature: daily.temp.max, fontForTitle: .callout, fontForCelcius: .caption)
                             }
                             .frame(width: 100)
                         }
