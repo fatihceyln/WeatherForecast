@@ -28,7 +28,6 @@
 		3DA636A72893F69E009ADE74 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA636A62893F69E009ADE74 /* WeatherService.swift */; };
 		3DA636A92893FB8B009ADE74 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA636A82893FB8B009ADE74 /* Double.swift */; };
 		3DEBA5332895195600100AB7 /* DailyWeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEBA5322895195600100AB7 /* DailyWeatherInfo.swift */; };
-		3DEBA53528952CFF00100AB7 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEBA53428952CFF00100AB7 /* ImageService.swift */; };
 		3DF81C762891B1D200416899 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF81C752891B1D200416899 /* HomeScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +55,6 @@
 		3DA636A62893F69E009ADE74 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		3DA636A82893FB8B009ADE74 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		3DEBA5322895195600100AB7 /* DailyWeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherInfo.swift; sourceTree = "<group>"; };
-		3DEBA53428952CFF00100AB7 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		3DF81C752891B1D200416899 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,7 +123,6 @@
 			children = (
 				3D1F8D45289136E00043F295 /* LocationService.swift */,
 				3DA636A62893F69E009ADE74 /* WeatherService.swift */,
-				3DEBA53428952CFF00100AB7 /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -318,7 +315,6 @@
 				3D1386AA28943E38007F64E9 /* WeatherDescriptionImageView.swift in Sources */,
 				3D1386AE289477ED007F64E9 /* CurrentStatistics.swift in Sources */,
 				3DA636A52893F662009ADE74 /* WeatherInfoViewModel.swift in Sources */,
-				3DEBA53528952CFF00100AB7 /* ImageService.swift in Sources */,
 				3DA636A92893FB8B009ADE74 /* Double.swift in Sources */,
 				3D1F8D4A28913E4B0043F295 /* LocationCardView.swift in Sources */,
 			);
