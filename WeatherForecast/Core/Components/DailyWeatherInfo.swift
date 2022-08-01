@@ -52,7 +52,7 @@ struct DailyWeatherInfo: View {
 
 struct DailyWeatherInfo_Previews: PreviewProvider {
     static var previews: some View {
-        DailyWeatherInfo(timeZone: "xxxx", daily: Daily(dt: 1659085200, sunrise: nil, sunset: nil, temp: Temp(day: 30.9, min: 19.51, max: 34.04, night: 24.61), pressure: 1011, humidity: 22, windSpeed: 4.07, windDeg: 82, weather: [Weather(id: 800, main: Main.clear, weatherDescription: Description.clearSky, icon: "01d")], clouds: 0, rain: 0))
+        DailyWeatherInfo(timeZone: "xxxx", daily: Daily(dt: 1659085200, sunrise: nil, sunset: nil, temp: Temp(min: 19.51, max: 34.04), pressure: 1011, humidity: 22, windSpeed: 4.07, windDeg: 82, weather: [Weather( weatherDescription: Description.clearSky, icon: "01d")], rain: 0))
             .preferredColorScheme(.dark)
     }
 }

@@ -17,7 +17,7 @@ struct LocationCardView: View {
                 .frame(width: .deviceWidth * 0.75, alignment: .leading)
             
             HStack {
-                Text(getLocationInfo())
+                Text(stateAndCountryInfo())
                     .foregroundColor(.gray)
             }
         }
@@ -26,7 +26,7 @@ struct LocationCardView: View {
         .background(Color.black.opacity(0.00001)) // for tap gesture
     }
     
-    private func getLocationInfo() -> String {
+    private func stateAndCountryInfo() -> String {
         let state = location.state ?? ""
         let country = location.country ?? ""
         

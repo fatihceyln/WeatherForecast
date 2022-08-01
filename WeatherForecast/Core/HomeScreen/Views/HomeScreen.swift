@@ -30,7 +30,6 @@ struct HomeScreen: View {
                 .edgesIgnoringSafeArea(.all)
                 
                 tabBarItems
-                
             } else {
                 tabBarItems
                     .frame(maxHeight: .infinity, alignment: .top)

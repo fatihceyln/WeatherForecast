@@ -113,7 +113,7 @@ struct WeatherInfoView: View {
             Text("\(data.currentWeatherDescription.capitalized)")
                 .fontWeight(.bold)
             
-            Text("Feels like \(data.hourFeelsLike)°")
+            Text("Feels like \(data.currentFeelsLike)°")
         }
     }
     

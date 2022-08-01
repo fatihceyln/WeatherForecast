@@ -93,6 +93,6 @@ struct CurrentStatistics: View {
 
 struct CurrentStatistics_Previews: PreviewProvider {
     static var previews: some View {
-        CurrentStatistics(data: WeatherData(lat: nil, lon: nil, timezone: nil, timezoneOffset: nil, current: nil, hourly: nil, daily: nil))
+        CurrentStatistics(data: WeatherData(lat: nil, lon: nil, timezone: nil, current: nil, hourly: nil, daily: nil))
     }
 }

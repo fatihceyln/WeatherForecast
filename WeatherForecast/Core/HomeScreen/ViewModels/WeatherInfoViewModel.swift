@@ -25,17 +25,4 @@ class WeatherInfoViewModel: ObservableObject {
             self.weatherDataModel = returnedWeatherDataModel
         }
     }
-    
-    func getTime(dt: Int, timezone: String) -> String {
-        let date = Date(timeIntervalSince1970: TimeInterval(dt))
-        
-        let timeZone = TimeZone(identifier: timezone)
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .none
-        dateFormatter.timeStyle = .short
-        dateFormatter.timeZone = timeZone
-        
-        return dateFormatter.string(from: date)
-    }
 }

@@ -46,7 +46,7 @@ struct HourlyWeatherInfo: View {
 
 struct HourlyWeatherInfo_Previews: PreviewProvider {
     static var previews: some View {
-        HourlyWeatherInfo(timezone: "Europe/Istanbul", hourly: Current(dt: 1659690000, sunrise: 1659667834, sunset: 1659718717, temp: 34.02, feelsLike: 31.63, pressure: 1009, humidity: 15, uvi: 2.54, clouds: 0, visibility: 10000, windSpeed: 2.24, windDeg: 54, weather: nil))
+        HourlyWeatherInfo(timezone: "Europe/Istanbul", hourly: Current(dt: 1659690000, sunrise: 1659667834, sunset: 1659718717, temp: 34.02, feelsLike: 31.63, pressure: 1009, humidity: 15, uvi: 2.54, windSpeed: 2.24, windDeg: 54, weather: nil))
             .preferredColorScheme(.dark)
     }
 }

@@ -29,8 +29,6 @@ struct WeatherForecastApp: App {
                             throw error
                         }
                     }
-                    
-                    print("savedd")
                 }
             }
             .preferredColorScheme(.dark)
